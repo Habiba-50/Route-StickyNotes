@@ -16,10 +16,6 @@ export const auth = () => {
 
       const decoded = jwt.verify(token, JWT_SECRET);
 
-      if (!decoded || !decoded.id) {
-         ErrorExeption({ message: "Invalid token payload", cause: { status: 401 } });
-      }
-
       const user = await userModel.findById(decoded.id);
 
       if (!user) {
