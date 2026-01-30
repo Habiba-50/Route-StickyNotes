@@ -52,7 +52,7 @@ export const login = async (inputs) => {
     ErrorExeption({ message: "Invalid email or password" });
   }
 
-  const match = bcrypt.compareSync(password, user.password);
+  const match = bcrypt.compare(password, user.password);
   if (!match) {
     ErrorExeption({ message: "Invalid email or password" });
   }
