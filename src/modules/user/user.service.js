@@ -19,7 +19,7 @@ export const signup = async (inputs) => {
     ErrorExeption({ message: "User already exists" });
   }
 
-  const hashedPassword = bcrypt.hashSync(password, 8);
+  const hashedPassword = bcrypt.hash(password, 8);
 
   const encryptedPhone = CryptoJS.AES.encrypt(
     phone,
